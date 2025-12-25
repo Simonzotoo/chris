@@ -32,17 +32,23 @@
     html {
       scroll-behavior: smooth;
       -webkit-text-size-adjust: 100%;
+      height: 100%;
     }
 
     body {
       font-family: 'Inter', sans-serif;
       background: var(--soft-gray);
       color: var(--text-dark);
-      overflow-x: hidden;
       line-height: 1.6;
       min-height: 100vh;
       width: 100%;
       position: relative;
+      overflow-x: hidden; /* Changed from overflow: hidden */
+    }
+
+    /* FIX: Allow vertical scrolling */
+    body {
+      overflow-y: auto;
     }
 
     /* Header - Mobile Optimized */
@@ -51,7 +57,6 @@
       padding: 30px 20px;
       background: linear-gradient(135deg, var(--pine-green) 0%, var(--deep-green) 100%);
       position: relative;
-      overflow: hidden;
       width: 100%;
     }
 
@@ -101,7 +106,6 @@
       margin: 0 auto;
       padding: 20px;
       width: 100%;
-      overflow: hidden;
     }
 
     /* Photo Section - Mobile Optimized */
@@ -124,16 +128,10 @@
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
       transition: all 0.4s ease;
       background: white;
-      position: relative;
       width: 100%;
       height: auto;
       max-width: 600px;
       margin: 0 auto;
-    }
-
-    .photo-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
     }
 
     /* IMPORTANT: Mobile-friendly image container */
@@ -154,10 +152,6 @@
       object-position: center center; /* Focus on center of image */
       display: block;
       transition: transform 0.5s ease;
-    }
-
-    .photo-card:hover .photo-img {
-      transform: scale(1.03);
     }
 
     .photo-caption {
@@ -242,11 +236,6 @@
       width: 100%;
     }
 
-    .reflection-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
-    }
-
     .reflection-icon {
       font-size: 2.2rem;
       color: var(--christmas-red);
@@ -278,7 +267,6 @@
       padding: 40px 20px;
       margin-top: 60px;
       position: relative;
-      overflow: hidden;
       width: 100%;
     }
 
@@ -353,7 +341,6 @@
       height: 100%;
       pointer-events: none;
       z-index: 1000;
-      overflow: hidden;
     }
 
     .snowflake {
@@ -483,28 +470,10 @@
       overflow-x: hidden;
     }
 
-    /* Touch-friendly buttons and links */
-    .photo-card,
-    .reflection-card {
-      cursor: pointer;
-    }
-
     /* Improve mobile readability */
     p, h1, h2, h3, h4, h5, h6 {
       word-wrap: break-word;
       overflow-wrap: break-word;
-    }
-
-    /* Image loading placeholder */
-    .image-loading {
-      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-      background-size: 200% 100%;
-      animation: loading 1.5s infinite;
-    }
-
-    @keyframes loading {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
     }
   </style>
 </head>
@@ -516,7 +485,7 @@
   <header class="header fade-in">
     <h1 class="title">Christmas Gratitude</h1>
     <p class="subtitle">A quiet reflection on the blessings that warm our hearts this season</p>
-    <p class="subtitle">Thank you Father </p>
+    <p class="subtitle">Thank you Father</p>
   </header>
 
   <!-- Main Content -->
@@ -529,7 +498,7 @@
         <div class="photo-card">
           <div class="photo-img-container" id="imgContainer1">
             <img 
-              src="images\chris2.PNG" 
+              src="images/chris2.PNG" 
               alt="Christmas Memory" 
               class="photo-img"
               loading="lazy"
@@ -546,7 +515,7 @@
         <div class="photo-card fade-in delay-2">
           <div class="photo-img-container" id="imgContainer2">
             <img 
-              src="images\chris1.jpg" 
+              src="images/chris1.jpg" 
               alt="Gratitude in Simplicity" 
               class="photo-img"
               loading="lazy"
@@ -561,65 +530,65 @@
       </div>
     </section>
 
-<!-- Message Section -->
-<section class="message-section fade-in delay-2">
-  <div class="message-text">
-    <p>
-      Today I sit with my heart full, aware of <span class="highlight">how far God has brought me</span>.
-      There were moments I didn’t think I would make it this far, days of public smiles and private tears,
-      nights when the weight felt heavier than my strength.
-    </p>
+    <!-- Message Section -->
+    <section class="message-section fade-in delay-2">
+      <div class="message-text">
+        <p>
+          Today I sit with my heart full, aware of <span class="highlight">how far God has brought me</span>.
+          There were moments I didn't think I would make it this far, days of public smiles and private tears,
+          nights when the weight felt heavier than my strength.
+        </p>
 
-    <p>
-      Yet somehow, I am still here. When I had nothing left to give,
-      <span class="highlight">God carried me</span>. When doors closed, plans failed,
-      and answers didn’t come, He remained constant making a way where I could see none.
-    </p>
+        <p>
+          Yet somehow, I am still here. When I had nothing left to give,
+          <span class="highlight">God carried me</span>. When doors closed, plans failed,
+          and answers didn't come, He remained constant making a way where I could see none.
+        </p>
 
-    <p>
-      I hold space this season for <span class="highlight">deep gratitude</span> 
-      for protection I may never fully understand, for peace that arrived without explanation,
-      and for grace that never let me go.
-    </p>
-  </div>
-</section>
+        <p>
+          I hold space this season for <span class="highlight">deep gratitude</span> 
+          for protection I may never fully understand, for peace that arrived without explanation,
+          and for grace that never let me go.
+        </p>
+      </div>
+    </section>
 
-<!-- Reflection Cards -->
-<section class="reflection-section">
-  <div class="reflection-grid">
+    <!-- Reflection Cards -->
+    <section class="reflection-section">
+      <div class="reflection-grid">
 
-    <div class="reflection-card fade-in">
-      <i class="fas fa-heart reflection-icon"></i>
-      <h3>Gratitude for the Journey</h3>
-      <p>
-        I’ve lost things. I’ve been disappointed. I’ve been stretched beyond comfort.
-        Yet every tear meant something, and every delay carried purpose.
-        Through it all, God never let me go.
-      </p>
-    </div>
+        <div class="reflection-card fade-in">
+          <i class="fas fa-heart reflection-icon"></i>
+          <h3>Gratitude for the Journey</h3>
+          <p>
+            I've lost things. I've been disappointed. I've been stretched beyond comfort.
+            Yet every tear meant something, and every delay carried purpose.
+            Through it all, God never let me go.
+          </p>
+        </div>
 
-    <div class="reflection-card fade-in delay-1">
-      <i class="fas fa-seedling reflection-icon"></i>
-      <h3>Growth Through Trials</h3>
-      <p>
-        Pain became strength. Confusion turned into direction.
-        The challenges I questioned shaped me quietly,
-        building resilience I didn’t know I was capable of.
-      </p>
-    </div>
+        <div class="reflection-card fade-in delay-1">
+          <i class="fas fa-seedling reflection-icon"></i>
+          <h3>Growth Through Trials</h3>
+          <p>
+            Pain became strength. Confusion turned into direction.
+            The challenges I questioned shaped me quietly,
+            building resilience I didn't know I was capable of.
+          </p>
+        </div>
 
-    <div class="reflection-card fade-in delay-2">
-      <i class="fas fa-star reflection-icon"></i>
-      <h3>Faith for What’s Ahead</h3>
-      <p>
-        Moving forward with gratitude, humility, and faith 
-        knowing this chapter is not the end.
-        God is not done with me yet.
-      </p>
-    </div>
+        <div class="reflection-card fade-in delay-2">
+          <i class="fas fa-star reflection-icon"></i>
+          <h3>Faith for What's Ahead</h3>
+          <p>
+            Moving forward with gratitude, humility, and faith 
+            knowing this chapter is not the end.
+            God is not done with me yet.
+          </p>
+        </div>
 
-  </div>
-</section>
+      </div>
+    </section>
   </main>
 
   <!-- Footer -->
@@ -639,31 +608,22 @@
     // Create snowflakes
     function createSnowflakes() {
       const container = document.getElementById('snowflakes');
-      const flakeCount = 30; // Reduced for mobile performance
+      const flakeCount = 30;
       
       for (let i = 0; i < flakeCount; i++) {
         const flake = document.createElement('div');
         flake.className = 'snowflake';
         
-        // Random size between 2-5px
         const size = Math.random() * 3 + 2;
-        
-        // Random position
         const left = Math.random() * 100;
-        
-        // Random animation duration (slower on mobile)
         const duration = Math.random() * 15 + 15;
-        
-        // Random delay
         const delay = Math.random() * 10;
         
-        // Apply styles
         flake.style.width = `${size}px`;
         flake.style.height = `${size}px`;
         flake.style.left = `${left}%`;
-        flake.style.opacity = Math.random() * 0.4 + 0.2; // Reduced opacity for mobile
+        flake.style.opacity = Math.random() * 0.4 + 0.2;
         flake.style.animation = `snowfall ${duration}s linear ${delay}s infinite`;
-        flake.style.willChange = 'transform'; // Performance optimization
         
         container.appendChild(flake);
       }
@@ -674,10 +634,8 @@
       const images = document.querySelectorAll('.photo-img');
       
       images.forEach(img => {
-        // Add loading placeholder
         const container = img.parentElement;
         
-        // Check if image is loaded
         if (img.complete) {
           container.classList.remove('image-loading');
         } else {
@@ -687,59 +645,9 @@
           };
         }
         
-        // Error handling
         img.onerror = function() {
           container.classList.remove('image-loading');
-          // Keep fallback image
         };
-      });
-    }
-    
-    // Handle mobile-specific interactions
-    function setupMobileInteractions() {
-      // Remove hover effects on touch devices
-      if ('ontouchstart' in window || navigator.maxTouchPoints) {
-        const hoverElements = document.querySelectorAll('.photo-card, .reflection-card');
-        hoverElements.forEach(el => {
-          el.style.cursor = 'default';
-        });
-        
-        // Add touch feedback instead
-        document.querySelectorAll('.photo-card, .reflection-card').forEach(card => {
-          card.addEventListener('touchstart', function() {
-            this.style.transform = 'scale(0.98)';
-          });
-          
-          card.addEventListener('touchend', function() {
-            this.style.transform = 'scale(1)';
-          });
-          
-          card.addEventListener('touchcancel', function() {
-            this.style.transform = 'scale(1)';
-          });
-        });
-      }
-    }
-    
-    // Scroll animations with performance optimization
-    function handleScrollAnimations() {
-      const elements = document.querySelectorAll('.fade-in');
-      
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = 1;
-            entry.target.style.transform = 'translateY(0)';
-            observer.unobserve(entry.target); // Stop observing after animation
-          }
-        });
-      }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -30px 0px' // Smaller margin for mobile
-      });
-      
-      elements.forEach(el => {
-        observer.observe(el);
       });
     }
     
@@ -779,7 +687,6 @@
         
         document.body.appendChild(greeting);
         
-        // Remove after 4 seconds
         setTimeout(() => {
           greeting.style.animation = 'slideOut 0.5s ease';
           setTimeout(() => {
@@ -787,21 +694,6 @@
           }, 500);
         }, 4000);
       }, 1500);
-    }
-    
-    // Handle orientation changes
-    function handleOrientationChange() {
-      // Recalculate image heights on orientation change
-      const imageContainers = document.querySelectorAll('.photo-img-container');
-      imageContainers.forEach(container => {
-        // Reset to trigger reflow
-        container.style.height = '';
-        
-        // Set new height based on viewport
-        const isPortrait = window.innerHeight > window.innerWidth;
-        const newHeight = isPortrait ? '70vh' : '60vh';
-        container.style.height = newHeight;
-      });
     }
     
     // Add animation keyframes
@@ -818,12 +710,10 @@
     `;
     document.head.appendChild(style);
     
-    // Initialize everything
+    // Initialize everything - FIXED VERSION
     document.addEventListener('DOMContentLoaded', function() {
       createSnowflakes();
       optimizeImages();
-      setupMobileInteractions();
-      handleScrollAnimations();
       showChristmasGreeting();
       
       // Set initial styles for fade-in elements
@@ -833,35 +723,44 @@
         el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
       });
       
-      // Handle orientation change
-      window.addEventListener('orientationchange', handleOrientationChange);
-      window.addEventListener('resize', handleOrientationChange);
+      // Simple scroll animation
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
       
-      // Initial call for orientation
-      handleOrientationChange();
+      document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
+      });
       
-      // Prevent pull-to-refresh on mobile (optional)
-      document.body.addEventListener('touchmove', function(e) {
-        if (window.scrollY === 0) {
-          e.preventDefault();
-        }
-      }, { passive: false });
+      // Handle orientation changes
+      window.addEventListener('orientationchange', function() {
+        const imageContainers = document.querySelectorAll('.photo-img-container');
+        imageContainers.forEach(container => {
+          container.style.height = '';
+          const isPortrait = window.innerHeight > window.innerWidth;
+          container.style.height = isPortrait ? '70vh' : '60vh';
+        });
+      });
     });
     
-    // Load images with better error handling
+    // Load images
     window.addEventListener('load', function() {
-      // Add a small delay to ensure DOM is fully loaded
       setTimeout(optimizeImages, 100);
     });
     
-    // Service worker registration for offline support (optional)
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/sw.js').catch(function(err) {
-          console.log('ServiceWorker registration failed: ', err);
-        });
-      });
-    }
+    // Add error handling for images
+    window.addEventListener('error', function(e) {
+      if (e.target.tagName === 'IMG') {
+        console.log('Image failed to load:', e.target.src);
+      }
+    }, true);
   </script>
 </body>
 </html>
