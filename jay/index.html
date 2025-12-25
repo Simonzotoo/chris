@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Christmas Gratitude | Jaykeys</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --deep-green: #0c2411;
+      --christmas-red: #b91c1c;
+      --warm-gold: #d97706;
+      --soft-white: #fef3c7;
+      --pine-green: #14532d;
+      --soft-gray: #e7e5e4;
+      --text-dark: #1c1917;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--soft-gray);
+      color: var(--text-dark);
+      overflow-x: hidden;
+      line-height: 1.6;
+      min-height: 100vh;
+      width: 100%;
+      position: relative;
+    }
+
+    /* Header - Mobile Optimized */
+    .header {
+      text-align: center;
+      padding: 30px 20px;
+      background: linear-gradient(135deg, var(--pine-green) 0%, var(--deep-green) 100%);
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .header::before {
+      content: '🎄';
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      font-size: 1.8rem;
+      opacity: 0.3;
+    }
+
+    .header::after {
+      content: '⭐';
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 1.8rem;
+      opacity: 0.3;
+    }
+
+    .title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      color: var(--soft-white);
+      margin-bottom: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+      padding: 0 10px;
+    }
+
+    .subtitle {
+      font-size: clamp(1rem, 3vw, 1.2rem);
+      color: var(--soft-white);
+      opacity: 0.9;
+      font-weight: 300;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 15px;
+      line-height: 1.5;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    /* Photo Section - Mobile Optimized */
+    .photos-section {
+      margin: 40px 0;
+      width: 100%;
+    }
+
+    .photos-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      margin-top: 30px;
+      width: 100%;
+    }
+
+    .photo-card {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.4s ease;
+      background: white;
+      position: relative;
+      width: 100%;
+      height: auto;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .photo-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    /* IMPORTANT: Mobile-friendly image container */
+    .photo-img-container {
+      width: 100%;
+      height: 70vh; /* Better for mobile viewing */
+      max-height: 500px;
+      min-height: 300px;
+      position: relative;
+      overflow: hidden;
+      background: #f5f5f5; /* Fallback color */
+    }
+
+    .photo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* This ensures images cover the area without distortion */
+      object-position: center center; /* Focus on center of image */
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .photo-card:hover .photo-img {
+      transform: scale(1.03);
+    }
+
+    .photo-caption {
+      padding: 20px;
+      background: white;
+      border-top: 3px solid var(--christmas-red);
+    }
+
+    .photo-caption h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--deep-green);
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    .photo-caption p {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* Message Section - Mobile Optimized */
+    .message-section {
+      background: white;
+      border-radius: 15px;
+      padding: 30px 20px;
+      margin: 40px 0;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      border-top: 5px solid var(--warm-gold);
+      position: relative;
+      width: 100%;
+    }
+
+    .message-section::before {
+      content: '"';
+      position: absolute;
+      top: -25px;
+      left: 20px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      color: var(--warm-gold);
+      opacity: 0.2;
+    }
+
+    .message-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.3rem, 4vw, 1.8rem);
+      line-height: 1.6;
+      color: var(--deep-green);
+      text-align: center;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .message-text p {
+      margin-bottom: 25px;
+      padding: 0 5px;
+    }
+
+    .highlight {
+      color: var(--christmas-red);
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    /* Reflection Section - Mobile Optimized */
+    .reflection-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      margin: 40px 0;
+      width: 100%;
+    }
+
+    .reflection-card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s ease;
+      border-top: 4px solid var(--pine-green);
+      width: 100%;
+    }
+
+    .reflection-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .reflection-icon {
+      font-size: 2.2rem;
+      color: var(--christmas-red);
+      margin-bottom: 15px;
+      display: block;
+      text-align: center;
+    }
+
+    .reflection-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--deep-green);
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .reflection-card p {
+      color: #555;
+      font-size: 1rem;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    /* Footer - Mobile Optimized */
+    .footer {
+      background: linear-gradient(135deg, var(--deep-green) 0%, var(--pine-green) 100%);
+      color: var(--soft-white);
+      text-align: center;
+      padding: 40px 20px;
+      margin-top: 60px;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--christmas-red), var(--warm-gold), var(--christmas-red));
+    }
+
+    .signature {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 2.5rem);
+      color: var(--soft-white);
+      margin: 25px 0;
+      padding-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .signature::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 2px;
+      background: var(--warm-gold);
+    }
+
+    .footer-text {
+      max-width: 600px;
+      margin: 0 auto 25px;
+      font-size: 1.1rem;
+      opacity: 0.9;
+      line-height: 1.7;
+      padding: 0 10px;
+    }
+
+    .copyright {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      margin-top: 30px;
+      letter-spacing: 0.5px;
+      padding: 0 10px;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
+    .delay-3 { animation-delay: 0.6s; }
+
+    /* Simple Snow Effect - Mobile Optimized */
+    .snowflakes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1000;
+      overflow: hidden;
+    }
+
+    .snowflake {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.5;
+      filter: blur(0.5px);
+      animation: snowfall linear infinite;
+    }
+
+    @keyframes snowfall {
+      to { transform: translateY(100vh); }
+    }
+
+    /* Tablet Styles (min-width: 768px) */
+    @media (min-width: 768px) {
+      .header {
+        padding: 40px 20px;
+      }
+      
+      .header::before,
+      .header::after {
+        font-size: 2.2rem;
+        top: 20px;
+      }
+      
+      .container {
+        padding: 30px;
+      }
+      
+      .photos-grid {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .photo-card {
+        flex: 1;
+        min-width: 300px;
+        max-width: 500px;
+      }
+      
+      .photo-img-container {
+        height: 400px;
+      }
+      
+      .message-section {
+        padding: 40px 30px;
+      }
+      
+      .message-section::before {
+        left: 30px;
+        font-size: 5rem;
+      }
+      
+      .reflection-grid {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .reflection-card {
+        flex: 1;
+        min-width: 250px;
+        max-width: 350px;
+      }
+      
+      .footer {
+        padding: 50px 30px;
+      }
+    }
+
+    /* Desktop Styles (min-width: 1024px) */
+    @media (min-width: 1024px) {
+      .container {
+        padding: 40px;
+      }
+      
+      .photos-section {
+        margin: 60px 0;
+      }
+      
+      .photos-grid {
+        gap: 40px;
+        margin-top: 40px;
+      }
+      
+      .photo-img-container {
+        height: 450px;
+      }
+      
+      .message-section {
+        padding: 50px 40px;
+        margin: 60px 0;
+      }
+      
+      .reflection-grid {
+        gap: 30px;
+        margin: 60px 0;
+      }
+      
+      .reflection-card {
+        padding: 30px;
+      }
+      
+      .footer {
+        padding: 60px 40px;
+        margin-top: 80px;
+      }
+    }
+
+    /* Large Desktop (min-width: 1200px) */
+    @media (min-width: 1200px) {
+      .photo-img-container {
+        height: 500px;
+      }
+      
+      .reflection-grid {
+        gap: 40px;
+      }
+    }
+
+    /* Prevent horizontal scrolling */
+    body, html {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    /* Touch-friendly buttons and links */
+    .photo-card,
+    .reflection-card {
+      cursor: pointer;
+    }
+
+    /* Improve mobile readability */
+    p, h1, h2, h3, h4, h5, h6 {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    /* Image loading placeholder */
+    .image-loading {
+      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: loading 1.5s infinite;
+    }
+
+    @keyframes loading {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Snow Effect -->
+  <div class="snowflakes" id="snowflakes"></div>
+
+  <!-- Header -->
+  <header class="header fade-in">
+    <h1 class="title">Christmas Gratitude</h1>
+    <p class="subtitle">A quiet reflection on the blessings that warm our hearts this season</p>
+    <p class="subtitle">Thank you Father </p>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    
+    <!-- Photo Section -->
+    <section class="photos-section fade-in delay-1">
+      <div class="photos-grid">
+        <!-- Photo 1 -->
+        <div class="photo-card">
+          <div class="photo-img-container" id="imgContainer1">
+            <img 
+              src="images\chris2.PNG" 
+              alt="Christmas Memory" 
+              class="photo-img"
+              loading="lazy"
+              onerror="this.src='https://images.unsplash.com/photo-1512389142860-9c449e58a543?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'"
+            >
+          </div>
+          <div class="photo-caption">
+            <h3>A Moment of Joy</h3>
+            <p>The warmth of shared smiles, the comfort of familiar traditions</p>
+          </div>
+        </div>
+        
+        <!-- Photo 2 -->
+        <div class="photo-card fade-in delay-2">
+          <div class="photo-img-container" id="imgContainer2">
+            <img 
+              src="images\chris1.jpg" 
+              alt="Gratitude in Simplicity" 
+              class="photo-img"
+              loading="lazy"
+              onerror="this.src='https://images.unsplash.com/photo-1543339302-43c3e1d2d7b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'"
+            >
+          </div>
+          <div class="photo-caption">
+            <h3>Simple Blessings</h3>
+            <p>Finding gratitude in quiet moments and gentle reminders of love</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- Message Section -->
+<section class="message-section fade-in delay-2">
+  <div class="message-text">
+    <p>
+      Today I sit with my heart full, aware of <span class="highlight">how far God has brought me</span>.
+      There were moments I didn’t think I would make it this far, days of public smiles and private tears,
+      nights when the weight felt heavier than my strength.
+    </p>
+
+    <p>
+      Yet somehow, I am still here. When I had nothing left to give,
+      <span class="highlight">God carried me</span>. When doors closed, plans failed,
+      and answers didn’t come, He remained constant making a way where I could see none.
+    </p>
+
+    <p>
+      I hold space this season for <span class="highlight">deep gratitude</span> 
+      for protection I may never fully understand, for peace that arrived without explanation,
+      and for grace that never let me go.
+    </p>
+  </div>
+</section>
+
+<!-- Reflection Cards -->
+<section class="reflection-section">
+  <div class="reflection-grid">
+
+    <div class="reflection-card fade-in">
+      <i class="fas fa-heart reflection-icon"></i>
+      <h3>Gratitude for the Journey</h3>
+      <p>
+        I’ve lost things. I’ve been disappointed. I’ve been stretched beyond comfort.
+        Yet every tear meant something, and every delay carried purpose.
+        Through it all, God never let me go.
+      </p>
+    </div>
+
+    <div class="reflection-card fade-in delay-1">
+      <i class="fas fa-seedling reflection-icon"></i>
+      <h3>Growth Through Trials</h3>
+      <p>
+        Pain became strength. Confusion turned into direction.
+        The challenges I questioned shaped me quietly,
+        building resilience I didn’t know I was capable of.
+      </p>
+    </div>
+
+    <div class="reflection-card fade-in delay-2">
+      <i class="fas fa-star reflection-icon"></i>
+      <h3>Faith for What’s Ahead</h3>
+      <p>
+        Moving forward with gratitude, humility, and faith 
+        knowing this chapter is not the end.
+        God is not done with me yet.
+      </p>
+    </div>
+
+  </div>
+</section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer fade-in delay-3">
+    <div class="footer-text">
+      As the year gently closes its chapter, may you carry peace into the new dawn. May kindness return to you multiplied, and purpose guide each step forward.
+    </div>
+    
+    <div class="signature">Justice Simon Zotoo</div>
+    
+    <div class="copyright">
+      © 2025 Christmas Gratitude Reflection • Wishing you peace and joy
+    </div>
+  </footer>
+
+  <script>
+    // Create snowflakes
+    function createSnowflakes() {
+      const container = document.getElementById('snowflakes');
+      const flakeCount = 30; // Reduced for mobile performance
+      
+      for (let i = 0; i < flakeCount; i++) {
+        const flake = document.createElement('div');
+        flake.className = 'snowflake';
+        
+        // Random size between 2-5px
+        const size = Math.random() * 3 + 2;
+        
+        // Random position
+        const left = Math.random() * 100;
+        
+        // Random animation duration (slower on mobile)
+        const duration = Math.random() * 15 + 15;
+        
+        // Random delay
+        const delay = Math.random() * 10;
+        
+        // Apply styles
+        flake.style.width = `${size}px`;
+        flake.style.height = `${size}px`;
+        flake.style.left = `${left}%`;
+        flake.style.opacity = Math.random() * 0.4 + 0.2; // Reduced opacity for mobile
+        flake.style.animation = `snowfall ${duration}s linear ${delay}s infinite`;
+        flake.style.willChange = 'transform'; // Performance optimization
+        
+        container.appendChild(flake);
+      }
+    }
+    
+    // Optimize images for mobile
+    function optimizeImages() {
+      const images = document.querySelectorAll('.photo-img');
+      
+      images.forEach(img => {
+        // Add loading placeholder
+        const container = img.parentElement;
+        
+        // Check if image is loaded
+        if (img.complete) {
+          container.classList.remove('image-loading');
+        } else {
+          container.classList.add('image-loading');
+          img.onload = function() {
+            container.classList.remove('image-loading');
+          };
+        }
+        
+        // Error handling
+        img.onerror = function() {
+          container.classList.remove('image-loading');
+          // Keep fallback image
+        };
+      });
+    }
+    
+    // Handle mobile-specific interactions
+    function setupMobileInteractions() {
+      // Remove hover effects on touch devices
+      if ('ontouchstart' in window || navigator.maxTouchPoints) {
+        const hoverElements = document.querySelectorAll('.photo-card, .reflection-card');
+        hoverElements.forEach(el => {
+          el.style.cursor = 'default';
+        });
+        
+        // Add touch feedback instead
+        document.querySelectorAll('.photo-card, .reflection-card').forEach(card => {
+          card.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.98)';
+          });
+          
+          card.addEventListener('touchend', function() {
+            this.style.transform = 'scale(1)';
+          });
+          
+          card.addEventListener('touchcancel', function() {
+            this.style.transform = 'scale(1)';
+          });
+        });
+      }
+    }
+    
+    // Scroll animations with performance optimization
+    function handleScrollAnimations() {
+      const elements = document.querySelectorAll('.fade-in');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+            observer.unobserve(entry.target); // Stop observing after animation
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -30px 0px' // Smaller margin for mobile
+      });
+      
+      elements.forEach(el => {
+        observer.observe(el);
+      });
+    }
+    
+    // Christmas greeting for mobile
+    function showChristmasGreeting() {
+      setTimeout(() => {
+        const greeting = document.createElement('div');
+        greeting.style.cssText = `
+          position: fixed;
+          bottom: 15px;
+          right: 15px;
+          background: rgba(20, 83, 45, 0.95);
+          color: white;
+          padding: 12px 18px;
+          border-radius: 8px;
+          font-family: 'Inter', sans-serif;
+          font-size: 0.85rem;
+          z-index: 1000;
+          animation: slideIn 0.5s ease;
+          border-left: 4px solid var(--warm-gold);
+          backdrop-filter: blur(5px);
+          max-width: 250px;
+          -webkit-backdrop-filter: blur(5px);
+        `;
+        
+        greeting.innerHTML = `
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <i class="fas fa-gift" style="color: var(--warm-gold);"></i>
+            <div>
+              <strong>Merry Christmas</strong>
+              <div style="font-size: 0.75rem; opacity: 0.9; margin-top: 3px;">
+                May your season be filled with peace
+              </div>
+            </div>
+          </div>
+        `;
+        
+        document.body.appendChild(greeting);
+        
+        // Remove after 4 seconds
+        setTimeout(() => {
+          greeting.style.animation = 'slideOut 0.5s ease';
+          setTimeout(() => {
+            if (greeting.parentNode) greeting.parentNode.removeChild(greeting);
+          }, 500);
+        }, 4000);
+      }, 1500);
+    }
+    
+    // Handle orientation changes
+    function handleOrientationChange() {
+      // Recalculate image heights on orientation change
+      const imageContainers = document.querySelectorAll('.photo-img-container');
+      imageContainers.forEach(container => {
+        // Reset to trigger reflow
+        container.style.height = '';
+        
+        // Set new height based on viewport
+        const isPortrait = window.innerHeight > window.innerWidth;
+        const newHeight = isPortrait ? '70vh' : '60vh';
+        container.style.height = newHeight;
+      });
+    }
+    
+    // Add animation keyframes
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes slideIn {
+        from { transform: translateX(100px); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+      }
+      @keyframes slideOut {
+        from { transform: translateX(0); opacity: 1; }
+        to { transform: translateX(100px); opacity: 0; }
+      }
+    `;
+    document.head.appendChild(style);
+    
+    // Initialize everything
+    document.addEventListener('DOMContentLoaded', function() {
+      createSnowflakes();
+      optimizeImages();
+      setupMobileInteractions();
+      handleScrollAnimations();
+      showChristmasGreeting();
+      
+      // Set initial styles for fade-in elements
+      document.querySelectorAll('.fade-in').forEach(el => {
+        el.style.opacity = 0;
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+      });
+      
+      // Handle orientation change
+      window.addEventListener('orientationchange', handleOrientationChange);
+      window.addEventListener('resize', handleOrientationChange);
+      
+      // Initial call for orientation
+      handleOrientationChange();
+      
+      // Prevent pull-to-refresh on mobile (optional)
+      document.body.addEventListener('touchmove', function(e) {
+        if (window.scrollY === 0) {
+          e.preventDefault();
+        }
+      }, { passive: false });
+    });
+    
+    // Load images with better error handling
+    window.addEventListener('load', function() {
+      // Add a small delay to ensure DOM is fully loaded
+      setTimeout(optimizeImages, 100);
+    });
+    
+    // Service worker registration for offline support (optional)
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js').catch(function(err) {
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
+  </script>
+</body>
+</html>
